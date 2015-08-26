@@ -43,17 +43,17 @@ $(document).ready(function() {
     var nx = snake[0].x;
     var ny = snake[0].y;
 
-    if(direction == "right") nx++;
-    else if(direction == "left") nx--;
-    else if(direction == "up") ny--;
-    else if(direction == "down") ny++;
+    if(direction === "right") nx++;
+    else if(direction === "left") nx--;
+    else if(direction === "up") ny--;
+    else if(direction === "down") ny++;
 
-    if(nx == -1 || nx == w/10 || ny == -1 || ny == h/10 || check_collision(nx, ny, snake)) {
+    if(nx === -1 || nx === w/10 || ny === -1 || ny === h/10 || check_collision(nx, ny, snake)) {
       init();
       return;
     }
 
-    if(nx == food.x && ny == food.y) {
+    if(nx === food.x && ny === food.y) {
       var tail = {x: nx, y: ny};
       score++;
       create_food();
@@ -83,7 +83,7 @@ $(document).ready(function() {
 
   function check_collision(x, y, array) {
     for(var i = 0; i < array.length; i++) {
-      if(array[i].x == x && array[i].y == y)
+      if(array[i].x === x && array[i].y === y)
        return true;
     } return false;
   }
